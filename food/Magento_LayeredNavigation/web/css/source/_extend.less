@@ -1,0 +1,212 @@
+@header_top-bg: #222222;
+@bg-color: #3a3a3b;
+@white-color: #fff;
+@header_text-color: #afafaf;
+@green-main:#b7dc36;
+@border: #474747;
+@text-color: #3a3a3a;
+
+.sidebar-main{
+    .filter-content{
+        .filter-subtitle{
+            display: none;
+        }
+        .filter-current{
+            .filter-current-subtitle{
+                font-size: 20px;
+                display: block;
+                border-bottom: 1px solid @grid-line;
+                padding-bottom: 20px;
+            }
+            .items{
+                border-bottom: 1px solid @grid-line;
+                padding: 15px 0 20px 0;
+                .item{
+                    .filter-label{
+                        display: inline-block;
+                    }
+                    .filter-value{
+                        color: @green-bold;
+                    }
+                    .remove{
+                        float: right;
+                        span{
+                            display:none;
+                        }
+                    }
+                    .remove::before{
+                        content: '\f00d';
+                        font-family: 'FontAwesome';
+                        font-size: 16px;
+                        color: @text-blur;
+                    }
+                }
+            }
+        }
+        .filter-actions{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            .filter-clear{
+                span{
+                    color: @text-color;
+                    padding-right: 5px;
+                }
+            }
+
+        }
+        .filter-clear::after{
+            content: '\f00d';
+            font-family: 'FontAwesome';
+            font-size: 16px;
+            color: @text-blur;
+        }
+        .filter-options{
+            .filter-options-title{
+                font-size: 20px;
+                border-bottom: 1px solid @grid-line;
+                padding-bottom: 20px;
+                span{
+                    font-weight: 300;
+                }
+            }
+            .filter-options-content{
+                margin-top: 20px;
+                ul{
+                    li{
+                        margin-left: -22px;
+                        transition: 0.3s;
+                        input{
+                            display: none;
+                        }
+                        a{
+                            span{
+                                font-size: 1.4rem;
+                                color: @text-color;
+                            }
+                        }
+                    }
+                    li::before{
+                        content: '\f178';
+                        font-family: 'FontAwesome';
+                        margin-right: 10px;
+                        color:@green-bold;
+                        font-size: 16px;
+                        opacity: 0;
+                        transition: 0.3s;
+                    }
+                    li:hover::before{
+                        transition: 0.3s;
+                        opacity: 1;
+                    }
+                    li:hover{
+                        margin-left: 0;
+                        span.label{
+                            color: @green-bold;
+                        }
+                        .items-children{
+                            li.item{
+                                margin-left: -17px;
+                                a{
+                                    span{
+                                        color: @text-color;
+                                    }
+                                }
+                                &:hover{
+                                    margin-left: 0;
+                                    a{
+                                        span{
+                                            color: @green-bold;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .am-filter-items-attr_price{
+                    margin-bottom: 50px;
+                    .ui-slider-horizontal{
+                        height: 6px;
+                        .ui-slider-range{
+                            background-color: @green-bold;
+                            height: 6px;
+                        }
+                        .ui-slider-handle{
+                            padding: 0;
+                            margin-top: -5px;
+                            margin-left: -5px;
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            background: @green-bold;
+                            border: 2px solid @white-color;
+                        }
+                    }
+                    .amshopby-slider-display{
+                        float: right;
+                        margin: 20px 0 30px 0;
+                    }
+                }
+            }
+        }
+    }
+    .block-viewed-products-list{
+        .block-title{
+            strong{
+                font-size: 20px;
+                font-weight: 300;
+                span{
+                    font-weight: 700;
+                }
+            }
+        }
+        .block-content{
+            .products-list{
+                .product-items{
+                    .product-item{
+                        border: none;
+                        display: block;
+                        width: 100%;
+                        &-info{
+                            display: flex;
+                            .product-item-photo{
+                                width: 40%;
+                                position: relative;
+                                border-right: none;
+                                padding-right: 10px;
+                                .product-image-container{
+                                    margin-top: 15px;
+                                }
+                            }
+                            .product-item-details{
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.block-title{
+    border-bottom: 1px solid @grid-line;
+    padding-bottom: 20px;
+    strong{
+        font-size: 20px;
+        font-weight: 300;
+        span{
+            font-weight: 700;
+        }
+    }
+}
+.block-content{
+    margin-top: 20px;
+}
+.block-compare .block-title > strong, .block-wishlist .block-title > strong{
+    font-size: 20px;
+    font-weight: 300;
+    span{
+        font-weight: 700;
+    }
+}

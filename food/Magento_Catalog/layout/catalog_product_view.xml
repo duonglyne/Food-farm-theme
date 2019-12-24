@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <referenceContainer name="product.info.type" label="Availability" htmlClass="stock-vailability" htmlTag="div"> 
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.sku.vailability" template="Magento_Catalog::product/view/attribute.phtml" after="product.info.type">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getSku</argument>
+                        <argument name="at_code" xsi:type="string">sku</argument>
+                        <argument name="css_class" xsi:type="string">sku</argument>
+                        <argument name="at_label" xsi:type="string">Availability:</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="sku"</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+            <container name="special-share-button" label="share to friends" htmlTag="div" htmlClass="special-share share-to-friend" after="product.info.social">
+                <block name="special-share" after="-" template="Magento_Catalog::product/share/special-share.phtml" />
+            </container>
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.overview" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info" after="product.info.extrahint">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                        <argument name="at_code" xsi:type="string">short_description</argument>
+                        <argument name="css_class" xsi:type="string">overview</argument>
+                        <argument name="at_label" xsi:type="string">Quick description:</argument>
+                        <argument name="title" translate="true" xsi:type="string">Overview</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+                    </arguments>
+                </block>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Reports\Block\Product\Widget\Viewed" after="-" name="recently_viewed" cacheable="false" template="Magento_Reports::widget/viewed/content/viewed_list.phtml">
+                <action method="setPageSize">
+                <argument name="page_size" xsi:type="number">3</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <move element="product.info.type" destination="product.info.main" after="product.info.price"/>
+        <move element="product.info.overview" destination="product.info.main" before="product.info.type"/>
+        <referenceContainer name="columns">
+            <container name="related-product-container" label="Related Product" htmlTag="div" htmlClass="related-container-product" after="-"/>
+            <container name="product-detail-sale" label="block-sale-detail" htmlTag="div" htmlClass="block-detail-sale" after="-"/>
+        </referenceContainer>
+        <move element="catalog.product.related" destination="related-product-container" after="-"/>
+        <referenceContainer name="product-detail-sale">
+            <block class="Magento\Cms\Block\Block" name="sale-detail-block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">sale-detail-block</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\LayeredNavigation\Block\Navigation\Category" name="catalog.leftnav" before="-" template="Magento_LayeredNavigation::layer/view.phtml">
+                <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalog.navigation.state" as="state" />
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="renderer" template="Magento_LayeredNavigation::layer/filter.phtml"/>
+            </block>
+        </referenceContainer>
+        <!-- CUSTOM TAB -->
+        <referenceBlock name="product.info.details">
+				<referenceBlock name="product.info.description">
+					<arguments>
+						<argument name="priority" xsi:type="string">1</argument>
+					</arguments>
+				</referenceBlock>
+				<referenceBlock name="product.attributes">
+					<arguments>
+						<argument name="priority" xsi:type="string">2</argument>
+					</arguments>
+				</referenceBlock>
+				<referenceBlock name="reviews.tab">
+					<arguments>
+						<argument name="priority" xsi:type="string">3</argument>
+					</arguments>
+				</referenceBlock>
+				<!-- MY OWN CUSTOM BLOCK ON THE SECOND POSITION -->
+				<block class="Magento\Catalog\Block\Product\View\Description" name="product.features" as="features" template="product/view/features.phtml" group="detailed_info">
+					<arguments>
+						<argument translate="true" name="title" xsi:type="string">Product Tag</argument>
+						<argument name="priority" xsi:type="string">4</argument>
+					</arguments>
+				</block>
+				<block class="Magento\Catalog\Block\Product\View" name="categoryinfo.tab" as="categoryinfo" template="Magento_Catalog::custom_tab.phtml" group="detailed_info">
+					<arguments>
+						<argument translate="true" name="title" xsi:type="string">Custom Tab</argument>
+						<argument name="priority" xsi:type="string">5</argument>
+					</arguments>
+				</block>
+
+				<!-- Custom static blocks as tabs --> 
+				
+				
+				<!-- MY OWN CUSTOM BLOCK ENDS HERE -->
+			</referenceBlock> 
+    </body>
+</page>

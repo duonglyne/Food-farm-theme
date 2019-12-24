@@ -1,0 +1,67 @@
+@header_top-bg: #222222;
+@bg-color: #3a3a3b;
+@white-color: #fff;
+@header_text-color: #afafaf;
+@green-main:#b7dc36;
+@border: #474747;
+
+.block.newsletter{
+    width: 100%;
+    border-left: 1px dashed @border;
+    border-right: 1px dashed @border;
+    .pdnewsletter{
+        display: flex;
+        padding: 35px 25px 0 25px;
+        .title{
+            display: inline-block;
+            width: 30%;
+            color: @white-color;
+            text-transform: uppercase;
+            position: relative;
+            strong{
+                font-size: 1.6rem;
+            }
+        }
+        .title::after {
+            content: "";
+            width: 20px;
+            height: 2px;
+            left: 0;
+            bottom: -13px;
+            position: absolute;
+            background:@green-main;
+        }
+        .content{
+            width: 70%;
+            .form{
+                input{
+                    height: 40px;
+                    width: 95%;
+                    background-color: #464647;
+                    border: none;
+                }
+                input::placeholder{
+                    color: @white-color;
+                    opacity: 0.3;
+                }
+                .actions{
+                    width: 27%;
+                    button{
+                        background-color: #7da204;
+                        height: 40px;
+                        border-radius: 5px;
+                        border: none;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+.block.newsletter .field .control::before{
+    content: "";
+}
+.page-products .products-grid .product-item {
+    width: calc((100% - 6%) / 3);
+}
+

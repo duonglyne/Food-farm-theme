@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="page.wrapper">
+            <container name="page_top_after_nav" label="Page Top After Navigation Container" htmlTag="div" htmlClass="hero search-hidden after-navigation" before="main.content"/>
+        </referenceContainer>
+        <referenceContainer name="page.wrapper">
+            <container name="breadcrumbs_after_nav" label="Breadcrumbs After Navigation Container" htmlTag="div" htmlClass="breadcrumbs-box" before="main.content"/>
+        </referenceContainer>
+        
+        <referenceBlock name="footer_links" remove="true" />
+
+        <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\Block" name="footer_background" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_background</argument>
+                </arguments>
+            </block>
+            <container name="footer_container_custom" label="Footer Container" htmlTag="div" htmlClass="footer_container" after="-"/>
+        </referenceContainer>
+
+        <referenceContainer name="footer_container_custom">
+            <container name="footer_image_custom" label="Footer Image" htmlTag="div" htmlClass="footer_image" before="cms_footer_links_container"/>
+            <container name="contacts_footer_container" label="Contact Footer Container" htmlTag="div" htmlClass="footer_contact" before="-"/>
+            <container name="services_footer_links_container" label="Services Footer Links" htmlTag="div" htmlClass="footer_links" after="-" />
+        </referenceContainer>
+
+        <referenceContainer name="contacts_footer_container">
+            <block class="Magento\Cms\Block\Block" name="footer_logo_box">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_logo_box</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="services_footer_links_container">
+            <container name="footer_links-detail" label="Footer Links Detail" htmlTag="div" htmlClass="footer_links-top" before="-"/>
+            <container name="footer_newletter" label="Footer Newletter" htmlTag="div" htmlClass="footer_links-bottom" after="-" />
+        </referenceContainer>
+        <referenceContainer name="footer_links-detail">
+            <block class="Magento\Cms\Block\Block" name="footer_box_categories">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_box_categories</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer_box_information">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_box_information</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer_box_polices">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_box_polices</argument>
+                </arguments>
+            </block>
+            
+            <block class="Magento\Cms\Block\Block" name="footer_box_find_us">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_box_find_us</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <move element="form.subscribe" destination="footer_newletter" before="-"/>
+    </body>
+</page>

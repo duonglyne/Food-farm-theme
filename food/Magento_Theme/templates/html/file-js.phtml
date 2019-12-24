@@ -1,0 +1,64 @@
+
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            var newHTML = $(".base").html().replace(" ", " <span>");
+            $(".base").html(newHTML).append("</span>");
+        });
+    });
+</script> 
+
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            var titleArray = document.getElementsByClassName("filter-options-title");
+            for (i = 0; i < titleArray.length; i++) {
+                var titleHTML = titleArray[i].innerText;
+                var stringNull = "";
+                titleArray[i].innerHTML = "<span>By</span> "+titleHTML;
+            }
+        });
+    });
+</script> 
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            var myEle = document.getElementById("block-compare-heading");
+            if(myEle){
+                var newHTML = $("#block-compare-heading").html().replace(" ", " <span>");
+                $("#block-compare-heading").html(newHTML).append("</span>");
+            }
+        });
+    });
+</script> 
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            var myEle = document.getElementById("block-related-heading");
+            if(myEle){
+            var newHTML = $("#block-related-heading").html().replace(" ", " <span>");
+            $("#block-related-heading").html(newHTML).append("</span>");
+            }
+        });
+    });
+</script>  
+
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            $(".block-title").children().addClass("heading-title-custom");
+        });
+    });
+</script>
+
+<script>
+    require(["jquery"],function($){
+        $(document).ready(function(){
+            var headArray = document.getElementsByClassName("heading-title-custom");
+            for (i = 0; i < headArray.length; i++) {
+                var headHTML = headArray[i].innerText.replace(" ", " <span>");
+                headArray[i].innerHTML =headHTML+"</span";
+            }
+        });
+    });
+</script>
